@@ -1,0 +1,91 @@
+# Default values for prometheus-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# the exporter image
+exporter: 
+  image: prom/blackbox-exporter
+  tag: latest
+  pullPolicy: IfNotPresent
+  port: 9115
+  args: []
+  env: []
+
+# blackbox-exporter is an exception that we should not scrape directly
+# we should create an Probe object for targets we want.
+
+service:
+  type: ClusterIP
+  clusterIP: "10.7.1.115"
+  port: 80
+
+# the serviceMonitor 
+serviceMonitor:
+  enabled: false
+  interval: 30s
+
+# the PrometheusRules
+prometheusRule:
+  enabled: true
+  # default PrometheusName of prometheus-operator is "k8s"
+  prometheusName: k8s 
+  rules: 
+  - alert: TLS certificate expiring
+    expr: (probe_ssl_earliest_cert_expiry - time())/86400 < 45
+    labels:
+      severity: warning
+  - alert: TLS certificate expiring
+    expr: (probe_ssl_earliest_cert_expiry - time())/86400 < 30
+    labels:
+      severity: critical
+
+# 
+replicaCount: 1
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+
+
+podAnnotations: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+resources: {}
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+

@@ -1,0 +1,19 @@
+# https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#probe
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata: 
+  namespace: monitoring
+  name: http-probe
+spec: 
+  jobName: http-probe
+  prober:
+    # blackbox-exporter defined in monitoring-exporter
+    url: "10.7.1.115"
+    scheme: http
+    path: /probe
+  targets:
+    staticConfig:
+      static: 
+      - https://example.com
+  module: http_2xx
+  interval: 15s

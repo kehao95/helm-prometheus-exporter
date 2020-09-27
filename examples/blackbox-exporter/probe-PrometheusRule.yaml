@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: k8s
+    role: alert-rules
+  name: blackbox-probe-rules
+  namespace: monitoring
+spec:
+  groups:
+  - name: probe.rules
+    rules:
+    - alert: HTTP probe failed
+      expr: |
+        probe_success{job="http-probe"}==0
+      for: 2m
+      labels:
+        severity: critical
+    - alert: TCP probe failed
+      expr: |
+        probe_success{job="tcp-probe"}==0
+      for: 2m
+      labels:
+        severity: critical

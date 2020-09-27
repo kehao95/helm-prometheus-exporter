@@ -1,0 +1,39 @@
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata: 
+  namespace: monitoring
+  name: tcp-probe
+spec: 
+  jobName: tcp-probe
+  prober:
+    # blackbox-exporter defined in monitoring-exporter
+    url: "10.7.1.115"
+    scheme: http
+    path: /probe
+  targets:
+    staticConfig:
+      static: 
+      - elasticsearch-1:9300
+      - elasticsearch-2:9300
+      - elasticsearch-3:9300
+      - rabbitmq-1:5672
+      - rabbitmq-2:5672
+      - rabbitmq-3:5672
+      - kafka-1:9092
+      - kafka-2:9092
+      - kafka-3:9092
+      - zookeeper-1:3888 
+      - zookeeper-2:3888 
+      - pulsar-1:6650
+      - pulsar-2:6650
+      - pulsar-3:6650
+  module: tcp_connect
+  interval: 1m
+
+
+---
+
+
+  #  http get zookeeper-1:8000/metrics

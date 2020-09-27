@@ -1,0 +1,86 @@
+# Default values for prometheus-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# the exporter image
+exporter: 
+  image: prometheuscommunity/stackdriver-exporter
+  tag: latest
+  pullPolicy: IfNotPresent
+  port: 9255
+  args:
+  - --monitoring.metrics-type-prefixes=dataproc.googleapis.com/cluster/job
+  - --monitoring.metrics-interval=2m
+  env: []
+
+service:
+  type: ClusterIP
+  clusterIP: ""
+  port: 80
+  
+# the serviceMonitor 
+serviceMonitor:
+  enabled: true
+  interval: 2m
+
+# the PrometheusRules
+prometheusRule:
+  enabled: true
+  # default PrometheusName of prometheus-operator is "k8s"
+  prometheusName: k8s 
+  rules:
+  - alert: sample alert dataproc job down
+    expr: absent(stackdriver_cloud_dataproc_cluster_dataproc_googleapis_com_cluster_job_running_count) 
+    for: 1m
+    labels: 
+      description: No dataproc job observed. Is processor running?
+      severity: critical
+
+
+replicaCount: 1
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
