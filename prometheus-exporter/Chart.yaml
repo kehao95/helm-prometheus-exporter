@@ -1,6 +1,6 @@
 apiVersion: v2
 name: prometheus-exporter
-description: A Helm chart for Kubernetes
+description: Deploy any prometheus exporter at ease. 
 
 # A chart can be either an 'application' or a 'library' chart.
 #
