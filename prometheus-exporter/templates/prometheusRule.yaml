@@ -1,0 +1,26 @@
+# prometheusRule
+{{- if .Values.prometheusRule.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    {{- include "prometheus-exporter.selectorLabels" . | nindent 4 }}
+    # need these two lables so that prometheus can select
+    prometheus: {{.Values.prometheusRule.prometheusName}}
+    role: alert-rules
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  groups:
+  - name: {{ .Release.Name }}.rules
+    rules:
+    - alert: ExporterDown {{ .Release.Name }}
+      expr: | 
+        absent(up{job="{{ .Release.Name }}"})
+      for: 3m
+      labels:
+        severity: critical 
+    {{- if .Values.prometheusRule.rules }}
+    {{- toYaml .Values.prometheusRule.rules | nindent 4 }}
+    {{- end }}
+{{- end }}

@@ -1,0 +1,18 @@
+# Source: prometheus-exporter/templates/serviceMonitor.yaml
+{{- if .Values.serviceMonitor.enabled}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    {{- include "prometheus-exporter.labels" . | nindent 4 }}
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "prometheus-exporter.selectorLabels" . | nindent 8 }}
+  endpoints:
+  - interval: {{ .Values.serviceMonitor.interval }}
+    port: metrics
+  jobLabel: {{ .Release.Name }}
+{{- end }}
