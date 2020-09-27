@@ -13,13 +13,19 @@ The Chart will install the following objects:
 
 ## Usage
 
-Get an values template from the chart
-
+1. install the chart 
 ```bash
-helm show values prometheus-exporter > my-exporter.yaml
+helm repo add kehao95 https://kehao95.github.io/helm-prometheus-exporter/
 ```
 
-Edit the values according to the document of the exporter you are about to install.
+
+2. get an values template from the chart
+
+```bash
+helm show values kehao95/prometheus-exporter > my-exporter.yaml
+```
+
+3. edit the values according to the document of the exporter you are about to install.
 
 ```yaml
 exporter: 
@@ -59,10 +65,10 @@ prometheusRule:
       runbookUrl: https://example.com
 ```
 
-Then install it with helm to `monitoring` namespace
+4. install it with helm
 
 ```bash
-# install
+# install to `monitoring` namespace
 helm install -n monitoring my-exporter prometheus-exporter -f my-exporter.yaml
 # upgrade
 helm upgrade -n monitoring my-exporter prometheus-exporter -f my-exporter.yaml
