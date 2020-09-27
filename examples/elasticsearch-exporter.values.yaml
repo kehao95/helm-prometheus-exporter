@@ -1,0 +1,88 @@
+# Default values for prometheus-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+exporter: 
+  # the exporter image
+  image: justwatch/elasticsearch_exporter
+  tag: latest
+  pullPolicy: IfNotPresent
+  # the exporter's listen port 
+  # eg: danielqsj/kafka-exporter has default port at 9308
+  port: 9114
+  # config the exporter with args or envs
+  args:
+    - --es.uri=http://elasticsearch:9200
+  env: []
+    # - FOO=bar
+
+service:
+  type: ClusterIP
+  clusterIP: ""
+  port: 80
+  
+# the serviceMonitor 
+serviceMonitor:
+  enabled: true
+  interval: 30s
+
+# the PrometheusRules
+prometheusRule:
+  enabled: false
+  # default PrometheusName of prometheus-operator is "k8s"
+  prometheusName: k8s 
+  rules: []
+  # - alert: sample alert
+  #   expr: up > 0
+  #   labels:
+  #     severity: critical
+  #     runbookUrl: https://example.com
+
+# 
+replicaCount: 1
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
