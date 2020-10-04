@@ -14,12 +14,14 @@ spec:
   groups:
   - name: {{ .Release.Name }}.rules
     rules:
+    {{- if .Values.prometheusRule.exporterUpCheck}}
     - alert: ExporterDown {{ .Release.Name }}
       expr: | 
         absent(up{job="{{ .Release.Name }}"})
       for: 3m
       labels:
         severity: critical 
+    {{- end }}
     {{- if .Values.prometheusRule.rules }}
     {{- toYaml .Values.prometheusRule.rules | nindent 4 }}
     {{- end }}
