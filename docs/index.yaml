@@ -2,7 +2,16 @@ apiVersion: v1
 entries:
   prometheus-exporter:
   - apiVersion: v2
-    created: "2020-10-03T22:24:38.293626-04:00"
+    created: "2020-10-05T10:02:25.795834-04:00"
+    description: Deploy any prometheus exporter at ease.
+    digest: 19aee78132cd2b80af7ffdc600aae3523b770c990263663d5f4be7838ef23c0c
+    name: prometheus-exporter
+    type: application
+    urls:
+    - https://kehao95.github.io/prometheus-exporter/prometheus-exporter-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    created: "2020-10-05T10:02:25.795294-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: e9d8e9ba1e71eac30ed5c674101485dabb34e8dbcf40fe452d479a8be1f7e268
     name: prometheus-exporter
@@ -11,7 +20,7 @@ entries:
     - https://kehao95.github.io/prometheus-exporter/prometheus-exporter-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
-    created: "2020-10-03T22:24:38.293169-04:00"
+    created: "2020-10-05T10:02:25.794301-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: f2fa38a300dda4e2b79230b2909c536c4d41dc0d0db7fd6c4ec8b39b20c373bc
     name: prometheus-exporter
@@ -20,7 +29,7 @@ entries:
     - https://kehao95.github.io/prometheus-exporter/prometheus-exporter-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
-    created: "2020-10-03T22:24:38.292059-04:00"
+    created: "2020-10-05T10:02:25.788005-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: a662a8c8858735cbb3681eb5a4d58b1ef7d4e5ee9a7b9f77c2ce04787c4ea14e
     name: prometheus-exporter
@@ -28,4 +37,4 @@ entries:
     urls:
     - https://kehao95.github.io/prometheus-exporter/prometheus-exporter-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-03T22:24:38.290823-04:00"
+generated: "2020-10-05T10:02:25.78631-04:00"
