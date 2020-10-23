@@ -18,6 +18,7 @@ exporter:
     # - name: foo
     #   value: "bar"
   volumeMounts: []
+volumes: []
 
 service:
   type: ClusterIP
