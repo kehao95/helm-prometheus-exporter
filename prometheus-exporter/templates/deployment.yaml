@@ -42,6 +42,10 @@ spec:
           env:
             {{- toYaml .Values.exporter.env | nindent 12}}
           {{- end }}
+          {{- if .Values.exporter.volumeMounts}}
+          volumeMounts:
+            {{- toYaml .Values.exporter.volumeMounts | nindent 12}}
+          {{- end }}
           ports:
             - name: metrics
               containerPort: {{ .Values.exporter.port }}

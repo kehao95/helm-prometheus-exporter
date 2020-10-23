@@ -11,10 +11,13 @@ exporter:
   # eg: danielqsj/kafka-exporter has default port at 9308
   port: 9308
   # config the exporter with args or envs
+  # https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#container-v1-core
   args: []
     # - --kafka.server=kafka:9092
   env: []
-    # - FOO=bar
+    # - name: foo
+    #   value: "bar"
+  volumeMounts: []
 
 service:
   type: ClusterIP
