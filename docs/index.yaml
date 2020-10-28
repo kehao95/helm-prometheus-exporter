@@ -2,7 +2,16 @@ apiVersion: v1
 entries:
   prometheus-exporter:
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.262784-04:00"
+    created: "2020-10-28T15:42:16.37639-04:00"
+    description: Deploy any prometheus exporter at ease.
+    digest: ab90f2926cc793d398e071ee8ea9fad929304511970a3d593bbec193056f4418
+    name: prometheus-exporter
+    type: application
+    urls:
+    - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    created: "2020-10-28T15:42:16.375857-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: 650db7dcd6cb418951cf43be2431b1a12cf3ba547d5a36fc600c5b434a2dee68
     name: prometheus-exporter
@@ -11,7 +20,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.4.tgz
     version: 0.2.4
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.262089-04:00"
+    created: "2020-10-28T15:42:16.375323-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: ff7fe36314712f30bf2291f09fefadc3f7317e10365a14cebfa9060eda417443
     name: prometheus-exporter
@@ -20,7 +29,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.3.tgz
     version: 0.2.3
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.261396-04:00"
+    created: "2020-10-28T15:42:16.374381-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: 3765d3f17499ad6901319b7799d53ac331572bad85711c6a6e064b01bc90763a
     name: prometheus-exporter
@@ -29,7 +38,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.2.tgz
     version: 0.2.2
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.258219-04:00"
+    created: "2020-10-28T15:42:16.373461-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: 34dc84824bae00cef79b5fb1cc47bbfb55240cf5bf933c071035703c0fc0a092
     name: prometheus-exporter
@@ -38,7 +47,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.1.tgz
     version: 0.2.1
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.256473-04:00"
+    created: "2020-10-28T15:42:16.371266-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: 19aee78132cd2b80af7ffdc600aae3523b770c990263663d5f4be7838ef23c0c
     name: prometheus-exporter
@@ -47,7 +56,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.254195-04:00"
+    created: "2020-10-28T15:42:16.370399-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: e9d8e9ba1e71eac30ed5c674101485dabb34e8dbcf40fe452d479a8be1f7e268
     name: prometheus-exporter
@@ -56,7 +65,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.251146-04:00"
+    created: "2020-10-28T15:42:16.369566-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: f2fa38a300dda4e2b79230b2909c536c4d41dc0d0db7fd6c4ec8b39b20c373bc
     name: prometheus-exporter
@@ -65,7 +74,7 @@ entries:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
-    created: "2020-10-23T11:34:36.245759-04:00"
+    created: "2020-10-28T15:42:16.368706-04:00"
     description: Deploy any prometheus exporter at ease.
     digest: a662a8c8858735cbb3681eb5a4d58b1ef7d4e5ee9a7b9f77c2ce04787c4ea14e
     name: prometheus-exporter
@@ -73,4 +82,4 @@ entries:
     urls:
     - https://kehao95.github.io/helm-prometheus-exporter/prometheus-exporter-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-23T11:34:36.242475-04:00"
+generated: "2020-10-28T15:42:16.367679-04:00"
