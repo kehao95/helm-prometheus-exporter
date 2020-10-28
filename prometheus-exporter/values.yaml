@@ -33,7 +33,7 @@ serviceMonitor:
 # the PrometheusRules
 prometheusRule:
   enabled: true
-  exporterUpCheck: false
+  exporterUpCheck: true
   # default PrometheusName of prometheus-operator is "k8s"
   prometheusName: k8s 
   rules: 
